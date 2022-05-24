@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" 0="">
+    <title>DataFlair Magic Square</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class ="jumbotron">DataFlair Magic Square</h1>
+        <h3 id= "score">3X3 Magic Square-</h3>
+        <br><br>
+        <div class="board">
+            <table>
+                <tr>
+                    <td><input id="one" type="text"  ></td>
+                    <td><input id="two" type="text"  ></td>
+                    <td><input id="three" type="text"  ></td>
+                </tr>
+                <tr>
+                    <td><input id="four" type="text"  ></td>
+                    <td><input id="five" type="text"  ></td>
+                    <td><input id="six" type="text"  ></td>
+                </tr>
+                <tr>
+                    <td><input id="seven" type="text"  ></td>
+                    <td><input id="eight" type="text"  ></td>
+                    <td><input id="nine" type="text"  ></td>
+                </tr>
+            </table><br>
+            <button class="btn btn-success" onclick="gen()"> Generate</button><br><br>
+        </div>
+    </div>
+    <script >
+    function gen(){
+    let n=3;
+    var vars = new Array();;
+    for(var i=0;i<3;i++)
+    {
+        vars.splice(i,0,new Array());
+        for(var j=0;j<3;j++)
+        vars[i].splice(i,0,0);
+    }
+    i=Math.floor(Math.random() * 10)%3;
+    j=(i+1)%3;
+    let cnt=1;
+    while(cnt<=9)
+    {
+        if(i==-1 && j==n)
+        {
+            j=n-2;
+            i=0;
+        }else
+        {
+            if(i<0)
+            i=n-1;
+            if(j==n)
+            j=0;
+        }
+        if(vars[i][j]!=0)
+        {
+            i++;
+            j-=2;
+            continue;
+        }
+        // console.log(i,j);
+        // console.log(j);
+        vars[i][j]=cnt++;
+        // console.log(vars[i][j]);
+
+        j++;
+        i--;
+    }
+    document.getElementById('one').value=vars[0][0];
+    document.getElementById('two').value=vars[0][1];
+    document.getElementById('three').value=vars[0][2];
+    document.getElementById('four').value=vars[1][0];
+    document.getElementById('five').value=vars[1][1];
+    document.getElementById('six').value=vars[1][2];
+    document.getElementById('seven').value=vars[2][0];
+    document.getElementById('eight').value=vars[2][1];
+    document.getElementById('nine').value=vars[2][2];
+
+}</script>
+</body>
+</html>

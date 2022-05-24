@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>magic square</title>
+</head>
+<body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<form action="" id="for" >
+<div><input type="text" id="1"><input type="text" id="2"><input type="text" id="3"></div><br>
+<div><input type="text" id="4"><input type="text" id="5"><input type="text" id="6"></div><br>
+<div><input type="text" id="7"><input type="text" id="8"><input type="text" id="9"></div>
+ type="submit<input">
+</form>
+<h1 id="print"> </h1>
+<script>
+    $(document).ready(function(){
+        $("#for").submit(function(event){
+            event.preventDefault();
+            var c1=parseInt($("#1").val())
+            var c2=parseInt($("#2").val())
+            var c3=parseInt($("#3").val())
+            var c4=parseInt($("#4").val())
+            var c5=parseInt($("#5").val())
+            var c6=parseInt($("#6").val())
+            var c7=parseInt($("#7").val())
+            var c8=parseInt($("#8").val())
+            var c9=parseInt($("#9").val())
+            var r1=c1+c2+c3
+            var r2=c4+c5+c6
+            var r3=c7+c8+c9
+            var col1=c1+c4+c7
+            var col2=c2+c5+c8
+            var col3=c3+c6+c9
+            var d1=c1+c5+c9
+            var d2=c3+c5+c7
+
+
+            if(r1==r2 && r1==r3 && r1==col1 && r1==col2&& r1==col3 && r1==d1 && r1==d2){
+            $("#print").text("success")
+            }
+            else {
+               $("#print").text("lose")
+            }
+        })
+    })
+</script>
+
+</body>
+</html>
