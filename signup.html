@@ -1,0 +1,118 @@
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+                    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>signup_page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<script>
+function show() {
+      var x = document.getElementById("psw");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+  }
+
+</script>
+<script >
+    $(document).ready(function(){
+    $("#dob").change(function()
+    {
+  var dob=$("#dob").val()
+var today = new Date();
+var ndob=new Date(dob)
+var age = Math.floor((today-ndob) / (365.25 * 24 * 60 * 60 * 1000));
+$('#age').val(age);
+    })
+    })
+
+
+</script>
+<script>
+     $(document).ready(function () {
+     $("#cpsw").change(checkPasswordMatch);
+    });
+    function checkPasswordMatch() {
+        var password = $("#psw").val();
+        var confirmPassword = $("#cpsw").val();
+        if (password != confirmPassword)
+            $("#CheckPasswordMatch").html("Passwords does not match!");
+        else
+            $("#CheckPasswordMatch").html("Passwords match.");
+    }
+
+    </script><script>
+$("#cpsw").on('keyup', function() {
+      var password = $("#psw").val();
+      var confirmPassword = $("#cpsw").val();
+      if (password != confirmPassword)
+        $("#CheckPasswordMatch").html("Password does not match !").css("color", "red");
+      else
+        $("#CheckPasswordMatch").html("Password match !").css("color", "green");
+ });
+ </script>
+<h1 style="text-align: center;">REGISTRATION FORM</h1>
+<form id="form" method="post" action="">
+    <div>
+
+
+        <br><label> Name : <input type="text" id="textOnly"
+                           size="30" name="Name" minlength="3" required/></label>
+
+            <form action="/url" method="GET"></p></form>
+            <br/>
+            E-mail Address: <input type="email" id="email"
+                                   size="30" name="EMail"/>
+            <br/>
+            <p>Address: <input type="text"
+                               size="30" name="Address"/></p>
+            <br/>
+            <p> D O B : <input type="date" id="dob"
+                               size="30" name="D O B"/></p>
+            <br/>
+            <p>gender: <input type="radio"
+                              name="gender" value="female"/>
+                female
+
+                <input type="radio"
+                       name="gender" value="male"/>
+                male
+                <input type="radio"
+                       name="gender" value="other"/>
+                other</p>
+            <br>
+
+        <p>Password:</p>
+
+            <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required ><label name="but" onclick="show()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+  <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+    </svg></label>
+
+                <br/>
+            <p>confirm password: <input type="password" id="cpsw"
+                                        size="30" confirm_password/></p>
+            <br/>
+            <p>age: <input type="number" id="age"
+                           size="20" name="age"/></p>
+            <p><input type="submit"
+                      size="20" id="submit" name="submit"/></p>
+
+
+        </br>
+    </div>
+
+</form>
+
+</body>
+
+
+
+</script>
+</html>
